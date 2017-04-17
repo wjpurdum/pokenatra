@@ -1,7 +1,15 @@
-<h2><a href="/">Selected Pokemon</a></h2>
+<h2><a href="/">All about <%= @pokemon.name %>. Click here to return back to Master List </a></h2>
 <div class="pokemon">
   <p>Name: <%= @pokemon.name %></p>
   <p>Type: <%= @pokemon.poke_type %></p>
   <p>CP: <%= @pokemon.cp %></p>
-  <img src ="<% @pokemon.img_url%>">
+  <p><img src ="<%= @pokemon.img_url%>"></p>
 </div>
+
+<a href='/pokemons/<%= @pokemon.id %>/edit'>You Can Edit This Pokemon!</a>
+
+<p>Delete This Pokemon Now</p>
+<form action="/pokemons/<%= @pokemon.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete!">
+</form>
