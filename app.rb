@@ -7,6 +7,12 @@ require_relative 'db/connection'
 
 # Load models
 require_relative 'models/pokemon'
+require_relative 'models/trainer'
+
+get '/trainers' do
+  @trainers = Trainer.all
+  erb :"trainers/index"
+end
 
 get '/pokemons/new' do
   erb :"pokemons/new"
@@ -28,6 +34,11 @@ end
 get '/pokemons/:id' do
   @pokemon = Pokemon.find(params[:id])
   erb :"pokemons/show"
+end
+
+get '/trainers/:id' do
+  @trainer = Trainer.find(params[:id])
+  erb :"trainers/show"
 end
 
 #post request for create
