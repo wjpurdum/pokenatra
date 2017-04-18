@@ -3,7 +3,7 @@
   <p>Name: <%= @pokemon.name %></p>
   <p>Type: <%= @pokemon.poke_type %></p>
   <p>CP: <%= @pokemon.cp %></p>
-  <p>Trainer: <%= @pokemon.trainer %></p>
+  <p>Trainer: <a href="/trainers/<%= @pokemon.trainer.id %>"><%= @pokemon.trainer.name %></p>
   <p><img src ="<%= @pokemon.img_url%>"></p>
 </div>
 
@@ -12,5 +12,5 @@
 <p>Delete This Pokemon Now</p>
 <form action="/pokemons/<%= @pokemon.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input class="button-delete" type="submit" value="Delete!">
+  <input class="button-delete" type="submit" value="DELETE">
 </form>
